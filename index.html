@@ -10,6 +10,7 @@
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
+.iceSlides {display: none}
 img {vertical-align: middle;}
 
 body {
@@ -228,7 +229,7 @@ img {
   bottom: 8px;
   width: 100%;
   text-align: center;
-  background-color: black;
+  background-color: #db4263;
   font-weight: bold;
 }
 
@@ -243,6 +244,17 @@ img {
 
 /* The dots/bullets/indicators */
 .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.iceDot {
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -307,7 +319,7 @@ img {
 </div> 
 
 <div style="padding-left:16px">
-  <center><h3>YOUR PABURRITOS :)</h3></center>
+  <center><h3 style="background-color:;">YOUR PABURRITOS :)</h3></center>
   <!-- <p>Resize the browser window to see how it works.</p>
   <p>Hover over the dropdown button to open the dropdown menu.</p> -->
 </div>
@@ -323,6 +335,7 @@ function myFunction() {
 }
 </script>
 
+<!-- Burrito Slides -->
 <div class="slideshow-container">
 
 <div class="mySlides fade">
@@ -352,6 +365,46 @@ function myFunction() {
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 
+
+<div style="padding-left:16px">
+  <center><h3 style="background-color:;">YOUR ICE CREAMS :)</h3></center>
+  <!-- <p>Resize the browser window to see how it works.</p>
+  <p>Hover over the dropdown button to open the dropdown menu.</p> -->
+</div>
+
+
+<!-- Ice cream Slides -->
+<div class="slideshow-container">
+
+<div class="iceSlides fade">
+  <img src="icecream1.jpg" style="width:100%">
+  <div class="text">OREOKY (ᵘᆸᵘ)⭜</div>
+</div>
+
+<div class="iceSlides fade">
+  <img src="icecream2.jpg" style="width:100%">
+  <div class="text">THE CHICKEN EGGS (˘ε˘)</div>
+</div>
+
+<div class="iceSlides fade">
+  <img src="icecream3.jpg" style="width:100%">
+  <div class="text">CREAMYLINE [̲̅$̲̅(̲̅ ᵕ꒳ᵕ)̲̅$̲̅]</div>
+</div>
+
+<a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides2(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="iceDot" onclick="currentSlide(1)"></span> 
+  <span class="iceDot" onclick="currentSlide(2)"></span> 
+  <span class="iceDot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
 <!-- The social media icon bar -->
 <div class="icon-bar">
   <a class="instagram" href="https://www.instagram.com/my_paburritos/" target="_blank"><i class="fa fa-instagram"></i></a>
@@ -361,6 +414,9 @@ function myFunction() {
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
+var slideIndex2 = 1;
+showSlides2(slideIndex2);
+
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -369,6 +425,15 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
+
+function plusSlides2(n) {
+  showSlides2(slideIndex2 += n);
+}
+
+function currentSlide2(n) {
+  showSlides2(slideIndex2 = n);
+}
+
 
 function showSlides(n) {
   var i;
@@ -384,6 +449,22 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
+}
+
+function showSlides2(n) {
+  var i;
+  var slides = document.getElementsByClassName("iceSlides");
+  var dots = document.getElementsByClassName("iceDot");
+  if (n > slides.length) {slideIndex2 = 1}    
+  if (n < 1) {slideIndex2 = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex2-1].style.display = "block";  
+  dots[slideIndex2-1].className += " active";
 }
 </script>
 
